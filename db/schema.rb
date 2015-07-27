@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721185509) do
+ActiveRecord::Schema.define(version: 20150727163539) do
 
   create_table "courses", force: :cascade do |t|
     t.datetime "created_at",       null: false
@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 20150721185509) do
     t.string   "preferred_people"
     t.integer  "profile_id"
     t.boolean  "looking_for"
+    t.integer  "department_id"
   end
 
+  add_index "courses", ["department_id"], name: "index_courses_on_department_id"
   add_index "courses", ["profile_id"], name: "index_courses_on_profile_id"
   add_index "courses", ["user_id"], name: "index_courses_on_user_id"
 

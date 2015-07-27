@@ -1,0 +1,5 @@
+<strong><%= @school.name %></strong>
+  <% @departments.each do |department| %>
+<ul><li><h2><%= link_to department.title, department_path(department), class: 'link-to-text-color' %> </h2>
+                      
+                       

@@ -1,0 +1,12 @@
+     <h1 class="page-title text-center">What Can You <strong>Learn?</strong></h1>
+          <% @courses.each do |course| %>
+                    <% user_id = course.user_id %>
+                    <% @user = User.find(user_id) %>
+                    <%  @profile = @user.profile %>
+        
+        </header>
+<h2><%= link_to course.title, course_path(course), class: 'link-to-text-color' %></h2>
+        <h3><%= @profile.name%></h3>
+        <p><%= course.description %></p>
+<hr>
+<%end%>

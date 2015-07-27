@@ -1,0 +1,37 @@
+<h1><%= @course.title %> </h1>
+<h2>By: <%= link_to @profile.name, user_profile_path(@profile.user_id, @profile), class: 'link-to-text-color' %></h2>
+<hr>
+</div>
+
+<% department = Department.find(@course.department_id) %>
+			<h3><b>DEPARTMENT</b></h3>
+		  	<p><%= department.name %> <%= @course.class_number %> </p>
+		  	<h3><b>PROFESSOR</b></h3>
+		  	<p><%= @course.professor %></p>
+		  	<br>
+		  	<h3><b>GRADE</b></h3>
+		  	<p><%= @course.grade %></p>
+		  	<br>
+		  	<h3><b>PRICE</b></h3>
+		  	<p><%= @course.price %></p>
+		  	<br>
+		  	<h3><b>DESCRIPTION</b></h3>
+		  	<p><%= @course.description %></p>
+		  	<br>
+		  	<h3><b>PREFERRED TIME</b></h3>
+		  	<p><%= @course.preferred_time %></p>
+		  	<br>
+		  	<h3><b>PREFERRED PEOPLE</b></h3>
+		  	<p><%= @course.preferred_people %></p>
+		  	<br>
+		  
+
+<% if user_signed_in? %>
+<% if current_user.id == @post.user_id %>
+<%= link_to 'Edit', edit_post_path(@post), class: 'link-to-text-color' %>
+  <%= link_to 'Delete', post_path(@post),
+               method: :delete, class: 'link-to-text-color',
+              data: { confirm: 'Are you sure?' } 
+              %>
+<% end %>
+<% end %>

@@ -1,0 +1,17 @@
+<%= simple_form_for @course do |f| %>
+
+	<%= f.input :title %>
+	<%= f.input :department_id, :collection => Department.all %>
+	<%= f.input :class_number %>
+	<%= f.input :professor %> 
+	<%= f.input :grade %> 
+	<%= f.input :price %>
+	<%= f.input :description %>
+	<%= f.input :preferred_time %>
+	<%= f.input :preferred_people %> 
+	<p> Please pick one of the options below.</p>
+	<%= f.select :looking_for, [['I need a tutor for this subject', true], ['I want to tutor in this subject', false]] %>
+	<br><br>
+
+	<%= f.submit %>
+<% end %>

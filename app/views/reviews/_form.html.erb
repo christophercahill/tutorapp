@@ -1,0 +1,13 @@
+<%= simple_form_for ([@profile, @review]) do |f| %>
+
+  <p>
+    <%= f.input :body, :class => "textbox" %><br>
+  </p>
+  <p>
+    <%= f.input :rating, label: "Rating (out of 5):", :class => "textbox" %>
+  </p>
+  <p>
+  	<%= f.button :submit, :class => "form-button" %>
+  </p>
+  
+<% end %>

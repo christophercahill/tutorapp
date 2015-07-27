@@ -1,0 +1,19 @@
+<p>
+  <strong>Review:</strong>
+
+  <%= review.body %> <br>
+ <strong>Rating (out of 5):</strong> <%= review.rating %>
+ <hr>
+</p>
+
+<p>
+<% if user_signed_in? %>
+<% if current_user.id == review.user_id %>
+<%= link_to 'Edit', edit_profile_review_path(review.profile, review), class: 'link-to-text-color' %>
+  <%= link_to 'Delete', [review.profile, review],
+               method: :delete, class: 'link-to-text-color', 
+               data: { confirm: 'Are you sure?' } %>
+<% end %>
+<% end %>
+
+</p>
